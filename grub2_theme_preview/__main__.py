@@ -409,14 +409,10 @@ def _candidate_grub2_image_directories(platform):
 
 
 def _grub2_platform():
-    if os.path.exists("/sys/firmware/efi"):
-        _cpu = platform.machine()
-        _platform = "efi"
-    else:
-        # for BIOS-based machines
-        # https://www.gnu.org/software/grub/manual/grub/grub.html#Installation
-        _cpu = "i386"
-        _platform = "pc"
+    # for BIOS-based machines
+    # https://www.gnu.org/software/grub/manual/grub/grub.html#Installation
+    _cpu = "i386"
+    _platform = "pc"
     return f"{_cpu}-{_platform}"
 
 
